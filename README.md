@@ -1,6 +1,8 @@
 Dart Builder
 ===
 
+[![Build Status](https://drone.io/github.com/matanlurey/dart_builder/status.png)](https://drone.io/github.com/matanlurey/dart_builder/latest)
+
 Getting Started
 ---
 
