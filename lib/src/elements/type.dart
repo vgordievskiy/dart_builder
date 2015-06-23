@@ -12,6 +12,7 @@ class TypeRef extends Source {
   /// a type (e.g. Map<String, dynamic>) but not as a return type of a method.
   static const TypeRef DYNAMIC = const TypeRef('dynamic');
 
+  static const TypeRef OBJECT = const TypeRef('Object');
   static const TypeRef STRING = const TypeRef('String');
 
   static const TypeRef DATE_TIME = const TypeRef('DateTime');

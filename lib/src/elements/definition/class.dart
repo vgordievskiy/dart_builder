@@ -11,9 +11,21 @@ class ClassRef extends Definition implements TopLevelElement {
   /// Whether the class should be declared abstract.
   final bool isAbstract;
 
+  /// If not null, extend this class.
+  final TypeRef extend;
+
+  /// Classes to implement.
+  final List<TypeRef> implement;
+
+  /// Classes to mixin.
+  final List<TypeRef> mixin;
+
   ClassRef(
       String name, {
       this.fields: const [],
+      this.extend,
+      this.implement: const [],
+      this.mixin: const [],
       this.methods: const [],
       this.isAbstract: false})
           : super(name);
@@ -30,6 +42,29 @@ class ClassRef extends Definition implements TopLevelElement {
     out.write($CLASS);
     out.write(' ');
     out.write(name);
+    if (extend != null) {
+      out.write(' ');
+      out.write($EXTENDS);
+      out.write(' ');
+      extend.write(out);
+    } else if (mixin.isNotEmpty) {
+      out.write(' ');
+      out.write($EXTENDS);
+      out.write(' ');
+      TypeRef.OBJECT.write(out);
+    }
+    if (mixin.isNotEmpty) {
+      out.write(' ');
+      out.write($WITH);
+      out.write(' ');
+      writeAll(mixin, out);
+    }
+    if (implement.isNotEmpty) {
+      out.write(' ');
+      out.write($IMPLEMENTS);
+      out.write(' ');
+      writeAll(implement, out);
+    }
     if (!hasBody) {
       out.write(' {}');
     } else {
