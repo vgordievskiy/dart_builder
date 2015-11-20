@@ -4,8 +4,8 @@ description: A fluent API for creating Dart code.
 version: 0.1.1
 homepage: https://github.com/matanlurey/dart_builder
 dependencies:
-  dart_style: ">=0.1.8 <0.2.0"
-  mustache: ">=0.2.3 <0.3.0"
-  quiver: ">=0.21.4 <0.22.0"
+  dart_style: any
+  mustache: any
+  quiver: any
 dev_dependencies:
   test: any
